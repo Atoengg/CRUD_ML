@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, 
+body{
+    height: 100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+form ul.helper-text li.valid{
+    color: rgb(13, 13, 236);
+    text-decoration-line: line-through;
+}
+
+form.valid .password{
+    border: 2px solid blue;
+}
+
+
+/* sidebar */
+section ul li.active{
+    background-color: #fff;
+    position: relative;
+}
+
+section ul li.active a{
+    color:#3b82f6;
+}
+
+section.hide ul li a{
+    width: calc(48px - (4px * 2));
+    transition: width .3s ease;
+}
+
+section ul li.active::before{
+    content: '';
+    position: absolute;
+    /* background: blue; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: -40px;
+    right: 0;
+    box-shadow: 20px 20px 0 #fff;
+    z-index: -1;
+}
+
+section ul li.active::after{
+    content: '';
+    position: absolute;
+    /* background: blue; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    bottom: -40px;
+    right: 0;
+    box-shadow: 20px -20px 0 #fff;
+    z-index: -1;
+}
+
+#sidebar.hide{
+    width: 60px;
+}
+
+/* content */
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+/* MAIN */
+#content main ul li a.active{
+    color: #3b82f6;
+    pointer-events: unset;  
+}
+
+#content main .box-info li:nth-child(1) .bi{
+    background: #ea580c;
+    color: #fff;
+}
+
+#content main .box-info li:nth-child(2) .bi{
+    background: #2563eb;
+    color: #fff;
+}
+
+/* #content main .banner{
+    background-image: url(https://th.bing.com/th/id/R.a4fe66db73acb69807a3ca23742f57ce?rik=VSkqnF7QFArSAg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-Cj1Gt4i5l3E%2fTVzDU80mD8I%2fAAAAAAAAB40%2f076xvt-MgrE%2fs1600%2fItachi_Uchiha_by_newanimationworld.png&ehk=AWDOMbeIDVa9R41q%2f6tH4X0zpr5GNaw1lQFqMp4TYoM%3d&risl=&pid=ImgRaw&r=0);
+} */
+
+
+@media screen and (max-width: 576px) {
+
+    #content nav form.show input {
+        display: block;
+        width: 100%;
+        transition:.3s ease-in-out;
+    }
+
+    #content nav form.show button{
+        width: 36px;
+        height: 100%;
+        border-radius: 0 36px 36px 0;
+        color: #d1d5db;
+        background: red;
+        
+    }
+
+    #content nav form.show ~ .notifikasi,
+    #content nav form.show ~ .profile{
+        display: none;
+    }
+   
+}
+
+
+/* Navbar */
+/* #content nav::before{
+    content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+    background: blue;
+	bottom: -40px;
+	left: 0;
+	border-radius: 50%;
+	box-shadow: -2px -2px 0 #fff;
+} */
